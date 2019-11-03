@@ -1,5 +1,5 @@
 # PiRouter
-A guide for setting up a dual wifi access point/repeater system on a raspberry pi. Note that this guide is actually very specific about the way things are set up. If you don't need the exact setup as explained below, it will probably be easier to follow some other standard guide for working with an access point on a raspberry pi.
+A guide for setting up a dual wifi access point/repeater system on a raspberry pi. Note that this guide is actually very specific about the way things are set up. (The setup is geared more towards offensive operations) If you don't need the exact setup as explained below, it will probably be easier to follow some other standard guide for working with an access point on a raspberry pi.
 
 # The interfaces
 
