@@ -1,5 +1,5 @@
 # PiRouter
-A guide for setting up a dual wifi access point/repeater system on a raspberry pi. Note that this guide is actually very specific about the way things are set up. (The setup is geared more towards offensive operations) If you don't need the exact setup as explained below, it will probably be easier to follow some other standard guide for working with an access point on a raspberry pi.
+A guide for setting up a dual wifi access point/repeater system on a raspberry pi. Note that this guide is actually very specific about the way things are set up. (The setup is geared more towards offensive operations) If you don't need the exact setup as explained below, it will probably be easier to follow some other standard guide for working with an access point on a raspberry pi. This guide is mostly for my own personal reference so that I don't forget these steps in the future. :S
 
 # The interfaces
 
@@ -11,3 +11,27 @@ A guide for setting up a dual wifi access point/repeater system on a raspberry p
 
 # Config 
 
+- **/etc/rc.local** -> at the end but before ``exit 0``, add the following:
+    ```
+       ./root/route_scripts/setup.sh
+       dmesg -D
+       hostapd -B /etc/hostapd/hostapd.conf
+    ```
+- **/etc/network/interfaces** -> [See image](/Selection_842.png)
+
+- **/etc/hostapd/hostapd.conf** -> [See image](/Selection_841.png)
+
+- **/etc/dnsmasq.conf** -> [See image](/Selection_840.png)
+
+- After editting the above files, you will need to tether the eth0 and wlan1 interfaces so that eth0 can get internet from wlan1.
+To do this, see [this](https://github.com/Zeroeh/udp-mitm/blob/master/raspberrypi/setup.sh) script. Replace all instances of wlan0 with wlan1. Save the script to the same path as in rc.local (Or change the path to whatever you like).
+
+- Reboot and verify that you can get internet through eth0. If you can't get internet, you'll have to search around on the internet on how to get it set up. There are lots of guides on this.
+
+- Verify that the access point is working. Verify that a device is able to connect and get internet.
+
+- Verify that wlan1 is connecting to your desired AP and getting internet.
+
+- Verify that your ``ifconfig`` looks somewhat similar to [this](/Selection_843.png).
+
+- That's about it. I could be missing a few things but as I said, this is more for personal reference rather than some easy to follow tutorial.
