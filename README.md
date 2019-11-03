@@ -9,6 +9,8 @@ A guide for setting up a dual wifi access point/repeater system on a raspberry p
 
 - **wlan1** -> This is an external wifi dongle, that connects to any access points specified in your wpa_supplicant file. Provides internet capabilities to wlan0 and eth0.
 
+- **br0** -> *Not required*. I used this in the past to get internet through wlan0->eth0 where wlan0 was an AP. A bridge doesn't seem to be required for wlan0->wlan1 connections. Iptables rules are not set either. Not entirely certain *how* wlan0 gets internet. Need to look into this.
+
 # Config 
 
 - **/etc/rc.local** -> at the end but before ``exit 0``, add the following:
