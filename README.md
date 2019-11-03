@@ -17,7 +17,7 @@ A guide for setting up a dual wifi access point/repeater system on a raspberry p
        dmesg -D
        hostapd -B /etc/hostapd/hostapd.conf
     ```
-- **/etc/network/interfaces** -> [See image](/Selection_842.png)
+- **/etc/network/interfaces** -> [See image](/Selection_842.png). Note that for whatever reason, wlan1 has to be defined *before* wlan0, otherwise the interfaces wont come up.
 
 - **/etc/hostapd/hostapd.conf** -> [See image](/Selection_841.png)
 
